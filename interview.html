@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="INTERVIEWAI Live Simulation - Professional video interview interface prototype.">
+  <title>Live Interview Room – INTERVIEWAI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/interview.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background-color: #070a12;">
+
+  <!-- ================= Sticky Utility & Timer Topbar ================= -->
+  <header class="interview-topbar">
+    <div class="container">
+      <div class="topbar-content">
+        
+        <!-- Left: Logo & Active Role Tag -->
+        <div class="topbar-role">
+          <a href="index.html" class="brand" style="font-size: 1.15rem;">
+            <div class="brand-icon" style="width: 32px; height: 32px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width: 18px; height: 18px;">
+                <path d="M12 2a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              </svg>
+            </div>
+            <span>INTERVIEWAI</span>
+          </a>
+          <span class="badge badge-blue">Frontend Developer • Technical</span>
+        </div>
+
+        <!-- Center: Question Progress Bar -->
+        <div class="topbar-progress-section">
+          <div class="progress-meta">
+            <span>Question 2 of 5</span>
+            <span>40% Completed</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar-active" style="width: 40%;"></div>
+          </div>
+        </div>
+
+        <!-- Right: Timer & Exit -->
+        <div class="topbar-timer-wrap">
+          <div class="timer-box" title="Session countdown timer">
+            <span class="timer-dot"></span>
+            <span>14:32</span>
+          </div>
+          <a href="results.html" class="btn btn-sm btn-danger" title="Finish and view score report">
+            End Interview
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Live Interview Room ================= -->
+  <main class="container">
+    
+    <!-- Demonstration Watermark -->
+    <div class="prototype-banner" style="margin-top: 1rem; margin-bottom: 0;">
+      <div>
+        <strong>Simulated Interview Room:</strong> This is a frontend UI demonstration. Question inputs and action buttons link directly to the sample performance report.
+      </div>
+      <span class="badge badge-emerald">HD Stream Live</span>
+    </div>
+
+    <div class="interview-layout">
+      
+      <!-- ================= Left Main Column: Video Feeds & Question/Answer ================= -->
+      <div class="interview-main-col">
+        
+        <!-- Video Feeds Split Grid -->
+        <div class="video-feeds-grid">
+          
+          <!-- AI Interviewer Video Tile (With CSS Animated Headset & Speaking Waves) -->
+          <div class="feed-tile active-speaker">
+            
+            <div class="feed-badge-top">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+              <span>AI Technical Interviewer (Alex)</span>
+            </div>
+
+            <!-- CSS Illustrated Speaking Avatar -->
+            <div class="ai-avatar-container">
+              <div class="ai-avatar-glow"></div>
+              <div class="ai-avatar-head">
+                <div class="ai-headset"></div>
+                <div class="ai-eyes-row">
+                  <div class="ai-eye"></div>
+                  <div class="ai-eye"></div>
+                </div>
+                <div class="ai-mouth-wave">
+                  <span class="mouth-bar"></span>
+                  <span class="mouth-bar"></span>
+                  <span class="mouth-bar"></span>
+                  <span class="mouth-bar"></span>
+                  <span class="mouth-bar"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="feed-badge-status speaking">
+              <span class="pulse-dot"></span> Speaking: Asking Question 2
+            </div>
+
+          </div>
+
+          <!-- Candidate WebCam Tile Mockup -->
+          <div class="feed-tile">
+            
+            <div class="feed-badge-top">
+              <span>You (Candidate)</span>
+              <span class="badge badge-emerald" style="padding: 1px 6px; font-size: 0.68rem;">1080p</span>
+            </div>
+
+            <div class="feed-controls-overlay">
+              <button type="button" class="control-pill-btn" title="Camera Toggle">📷</button>
+              <button type="button" class="control-pill-btn" title="Mic Toggle">🎙️</button>
+            </div>
+
+            <!-- Candidate Silhouette & Sound Indicator -->
+            <div class="candidate-preview">
+              <div class="candidate-avatar-icon">
+                👤
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Candidate Video Active</span>
+            </div>
+
+            <!-- Animated Audio Equalizer Indicator -->
+            <div class="candidate-audio-level" title="Mic Input Detection">
+              <span class="audio-bar"></span>
+              <span class="audio-bar"></span>
+              <span class="audio-bar"></span>
+              <span class="audio-bar"></span>
+            </div>
+
+            <div class="feed-badge-status">
+              <span>Mic Ready • Voice Sync Active</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Current Question Display Card -->
+        <div class="question-card">
+          <div class="question-header">
+            <div class="question-meta-tags">
+              <span class="badge badge-blue">JavaScript Runtime</span>
+              <span class="badge badge-violet">Intermediate</span>
+              <span class="badge badge-gray">Core Technical</span>
+            </div>
+            <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Weight: 20 pts</span>
+          </div>
+
+          <h2 class="question-text-heading">
+            "Explain how the JavaScript Event Loop works and how the microtask queue differs in priority from the macrotask queue."
+          </h2>
+
+          <!-- Expandable Answering Strategy Hint (Pure HTML details) -->
+          <details class="interview-tip-accordion">
+            <summary class="tip-summary">
+              💡 Need a tip on structuring this answer? (Click to expand)
+            </summary>
+            <div class="tip-content">
+              <strong>Recommended Answer Structure:</strong>
+              <p>1. <strong>Call Stack:</strong> Explain single-threaded synchronous execution.</p>
+              <p>2. <strong>Task Queues:</strong> Differentiate Microtasks (Promises, queueMicrotask) vs Macrotasks (setTimeout, setInterval, I/O).</p>
+              <p>3. <strong>Priority Rule:</strong> Clarify that the event loop exhausts the entire microtask queue before processing the next macrotask.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Answer Workspace Form (Submits to results.html) -->
+        <form action="results.html" method="get" class="answer-workspace">
+          
+          <div class="answer-header">
+            <h4>Your Response</h4>
+            <div class="speech-mode-badge">
+              <span class="pulse-dot"></span> Speech-to-Text Simulation Ready
+            </div>
+          </div>
+
+          <textarea 
+            name="candidate_answer" 
+            class="answer-textarea" 
+            placeholder="Type your response here or speak clearly into your microphone... Focus on technical accuracy, edge cases, and architectural principles."
+            required>The JavaScript engine is single-threaded and relies on the Event Loop to handle asynchronous operations. The Call Stack handles synchronous execution. When asynchronous operations resolve, their callbacks are queued into either the microtask queue or macrotask queue. Microtasks, such as Promise then/catch handlers and queueMicrotask, have higher priority and are completely drained after the current stack frame finishes, before the event loop picks up the next macrotask (such as setTimeout or setInterval callbacks).</textarea>
+
+          <!-- Action Buttons Bar -->
+          <div class="answer-actions">
+            
+            <div class="left-actions">
+              <a href="setup.html" class="btn btn-outline btn-sm" title="Reconfigure settings">
+                ← Reconfigure
+              </a>
+              <a href="questions.html" class="btn btn-secondary btn-sm" title="Skip to question bank">
+                Skip Question
+              </a>
+            </div>
+
+            <div class="right-actions">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Submit & Complete Interview →
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <!-- ================= Right Sidebar: Instructions & Live Stats ================= -->
+      <aside class="interview-side-col">
+        
+        <!-- Live Session Checklist -->
+        <div class="instructions-card">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Interview Guidelines
+          </h4>
+
+          <div class="instruction-list">
+            <div class="instruction-item">
+              <div class="instruction-num">1</div>
+              <div><strong>Be Structured:</strong> Define the concept first, then explain the mechanism, and finish with a practical example.</div>
+            </div>
+            <div class="instruction-item">
+              <div class="instruction-num">2</div>
+              <div><strong>Cite Trade-Offs:</strong> Mention performance costs (memory, time complexity, garbage collection).</div>
+            </div>
+            <div class="instruction-item">
+              <div class="instruction-num">3</div>
+              <div><strong>Pacing:</strong> Keep answers between 60 to 120 words for optimal score clarity.</div>
+            </div>
+            <div class="instruction-item">
+              <div class="instruction-num">4</div>
+              <div><strong>Behavioral Rounds:</strong> Always frame experiences using the <em>Situation, Task, Action, Result (STAR)</em> framework.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Session Meta Summary -->
+        <div class="interview-stats-sidebar">
+          <h4 style="font-size: 1rem;">Session Constraints</h4>
+
+          <div class="side-stat-row">
+            <span class="side-stat-label">Role Target:</span>
+            <span class="side-stat-value">Frontend Developer</span>
+          </div>
+
+          <div class="side-stat-row">
+            <span class="side-stat-label">Question Set:</span>
+            <span class="side-stat-value">2 of 5 Answered</span>
+          </div>
+
+          <div class="side-stat-row">
+            <span class="side-stat-label">Time Remaining:</span>
+            <span class="side-stat-value" style="color: #fbbf24;">14:32</span>
+          </div>
+
+          <div class="side-stat-row">
+            <span class="side-stat-label">Evaluation Mode:</span>
+            <span class="side-stat-value" style="color: var(--accent-emerald);">Keyword & Heuristic</span>
+          </div>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 0.5rem;">
+            <a href="results.html" class="btn btn-block btn-secondary btn-sm">
+              Finish Early & View Report
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer" style="padding: 2rem 0; margin-top: 2rem;">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding-top: 0;">
+        <div>© 2026 INTERVIEWAI. All rights reserved.</div>
+        <div class="prototype-disclaimer">Frontend UI Simulation • Pure HTML5 & CSS3</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

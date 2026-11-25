@@ -1,0 +1,573 @@
+/* ==========================================================================
+   INTERVIEWAI - Dashboard Stylesheet (css/dashboard.css)
+   Pure CSS Layouts, CSS-Only Bar Charts, Profile Cards & History Table
+   ========================================================================== */
+
+.dashboard-header {
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.dashboard-welcome-text h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.dashboard-welcome-text p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* User Profile & Metric Card Grid */
+.dashboard-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--grad-primary);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-avatar-wrap {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--grad-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.profile-status-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  border: 2px solid var(--bg-main);
+}
+
+.profile-title h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.profile-role-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.profile-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.profile-detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.86rem;
+}
+
+.detail-label {
+  color: var(--text-muted);
+}
+
+.detail-value {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* Metric Cards Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-fast);
+}
+
+.metric-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.metric-title {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.metric-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-icon.emerald {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-emerald);
+}
+
+.metric-icon.violet {
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--accent-violet);
+}
+
+.metric-icon.amber {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--accent-amber);
+}
+
+.metric-bottom {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.metric-number {
+  font-size: 2.25rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.metric-trend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trend-up {
+  color: var(--accent-emerald);
+}
+
+.trend-down {
+  color: var(--accent-rose);
+}
+
+/* --- Performance Analytics Section with Pure CSS Charts --- */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.chart-header h3 {
+  font-size: 1.2rem;
+}
+
+/* Pure CSS Bar Chart */
+.css-bar-chart {
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  position: relative;
+}
+
+.chart-y-axis {
+  position: absolute;
+  top: 0;
+  bottom: 30px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  width: 30px;
+}
+
+.chart-plot-area {
+  margin-left: 40px;
+  height: calc(100% - 30px);
+  border-bottom: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0 1rem;
+  position: relative;
+  background: repeating-linear-gradient(
+    to top,
+    transparent,
+    transparent 43px,
+    rgba(255, 255, 255, 0.03) 44px
+  );
+}
+
+.chart-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+  width: 44px;
+}
+
+.bar-pillar {
+  width: 100%;
+  max-width: 36px;
+  background: var(--grad-primary);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.bar-pillar:hover {
+  background: linear-gradient(180deg, #60a5fa 0%, #a78bfa 100%);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.6);
+  transform: scaleY(1.03);
+  transform-origin: bottom;
+}
+
+/* Pure CSS Tooltip on Hover */
+.bar-pillar::after {
+  content: attr(data-score);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  border: 1px solid var(--border-accent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.bar-pillar:hover::after {
+  opacity: 1;
+}
+
+.chart-x-labels {
+  margin-left: 40px;
+  display: flex;
+  justify-content: space-around;
+  height: 30px;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.x-label {
+  width: 44px;
+  text-align: center;
+}
+
+/* CSS Readiness Gauge / Circular Indicator */
+.gauge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.css-circular-gauge {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary-blue) 0deg,
+    var(--accent-violet) 280deg,
+    rgba(255, 255, 255, 0.08) 280deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 1.5rem;
+  position: relative;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+}
+
+.gauge-inner {
+  width: 114px;
+  height: 114px;
+  border-radius: 50%;
+  background: #0d1322;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-percent {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: #ffffff;
+  line-height: 1;
+}
+
+.gauge-caption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.gauge-description {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Skill Breakdown Bars */
+.skills-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-top: 1.5rem;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.skill-name {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.skill-score {
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.skill-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.fill-blue {
+  background: var(--grad-primary);
+}
+
+.fill-emerald {
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+}
+
+.fill-amber {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.fill-violet {
+  background: linear-gradient(90deg, #8b5cf6 0%, #c084fc 100%);
+}
+
+/* --- Recent History Table --- */
+.history-section {
+  margin-bottom: 3rem;
+}
+
+.table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.table-header-bar h3 {
+  font-size: 1.2rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.custom-table th {
+  padding: 1rem 1.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.custom-table td {
+  padding: 1.15rem 1.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.role-col-title {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.role-col-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.score-badge-table {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+}
+
+.score-high {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.score-mid {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.action-link {
+  color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+  color: #60a5fa;
+}

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="INTERVIEWAI Dashboard - Candidate performance analytics, score trends, and interview history.">
+  <title>Candidate Dashboard – INTERVIEWAI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ================= Navigation Bar ================= -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+            <line x1="8" y1="22" x2="16" y2="22"></line>
+          </svg>
+        </div>
+        <div class="brand-name">INTERVIEW<span>AI</span></div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="questions.html" class="nav-link">Question Bank</a>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="setup.html" class="btn btn-primary">Start New Interview</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Dashboard Main Content ================= -->
+  <main class="section" style="padding-top: 2.5rem;">
+    <div class="container">
+      
+      <!-- Top Welcome Banner -->
+      <div class="dashboard-header">
+        <div class="dashboard-welcome">
+          <div class="dashboard-welcome-text">
+            <h1>Welcome back, <span class="gradient-text">Alex Morgan</span> 👋</h1>
+            <p>Here is an overview of your interview performance, skill benchmarks, and recent practice sessions.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="questions.html" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              Practice Questions
+            </a>
+            <a href="setup.html" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Start New Interview
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demonstration Data Watermark -->
+      <div class="prototype-banner">
+        <div>
+          <strong>Static UI Prototype:</strong> All dashboard metrics and scores below represent static demonstration data.
+        </div>
+        <span class="badge badge-blue">Demo Profile</span>
+      </div>
+
+      <!-- Top Row: Profile Card & Quick Stats Grid -->
+      <div class="dashboard-top-grid">
+        
+        <!-- Profile Card -->
+        <div class="profile-card">
+          <div>
+            <div class="profile-header">
+              <div class="profile-avatar-wrap">
+                <div class="profile-avatar">👨‍💻</div>
+                <div class="profile-status-indicator" title="Ready to Interview"></div>
+              </div>
+              <div class="profile-title">
+                <h3>Alex Morgan</h3>
+                <span class="profile-role-badge">Target: Full Stack Developer</span>
+              </div>
+            </div>
+
+            <div class="profile-details-list">
+              <div class="profile-detail-row">
+                <span class="detail-label">Experience Tier</span>
+                <span class="detail-value">1–2 Years (Junior/Mid)</span>
+              </div>
+              <div class="profile-detail-row">
+                <span class="detail-label">Preferred Focus</span>
+                <span class="detail-value">React, Node.js, SQL, System Design</span>
+              </div>
+              <div class="profile-detail-row">
+                <span class="detail-label">Overall Readiness</span>
+                <span class="detail-value" style="color: var(--accent-emerald);">86% (Interview Ready)</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="setup.html" class="btn btn-outline btn-block btn-sm">
+            Configure Next Session
+          </a>
+        </div>
+
+        <!-- 4 Metric Cards -->
+        <div class="metrics-grid">
+          
+          <!-- Metric 1: Total Interviews -->
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Total Interviews Practiced</span>
+              <div class="metric-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+              </div>
+            </div>
+            <div class="metric-bottom">
+              <span class="metric-number">14</span>
+              <span class="metric-trend trend-up">↑ +3 this week</span>
+            </div>
+          </div>
+
+          <!-- Metric 2: Average Score -->
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Average Mock Score</span>
+              <div class="metric-icon emerald">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+            </div>
+            <div class="metric-bottom">
+              <span class="metric-number">84%</span>
+              <span class="metric-trend trend-up">↑ +8% vs baseline</span>
+            </div>
+          </div>
+
+          <!-- Metric 3: Strongest Skill -->
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Strongest Skill Area</span>
+              <div class="metric-icon violet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+            <div class="metric-bottom" style="flex-direction: column; gap: 0.25rem;">
+              <span style="font-size: 1.25rem; font-weight: 700; color: #fff;">Technical Depth</span>
+              <span style="font-size: 0.8rem; color: #a78bfa;">91% Average in JavaScript & Web Architecture</span>
+            </div>
+          </div>
+
+          <!-- Metric 4: Areas for Improvement -->
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-title">Areas Needing Improvement</span>
+              <div class="metric-icon amber">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              </div>
+            </div>
+            <div class="metric-bottom" style="flex-direction: column; gap: 0.25rem;">
+              <span style="font-size: 1.25rem; font-weight: 700; color: #fff;">System Scaling</span>
+              <span style="font-size: 0.8rem; color: #fbbf24;">Database Indexing & Distributed Caching</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Middle Row: Pure CSS Performance Charts -->
+      <div class="analytics-grid">
+        
+        <!-- Left: CSS Bar Chart (Score Progression) -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3>Interview Score History</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">Progression across your last 5 simulated sessions</p>
+            </div>
+            <span class="badge badge-emerald">Positive Trajectory</span>
+          </div>
+
+          <!-- Pure CSS Bar Chart (Zero JS) -->
+          <div class="css-bar-chart">
+            
+            <div class="chart-y-axis">
+              <span>100</span>
+              <span>75</span>
+              <span>50</span>
+              <span>25</span>
+              <span>0</span>
+            </div>
+
+            <div class="chart-plot-area">
+              
+              <!-- Session 1: 65% -->
+              <div class="chart-bar-col">
+                <div class="bar-pillar" style="height: 65%;" data-score="65%"></div>
+              </div>
+
+              <!-- Session 2: 72% -->
+              <div class="chart-bar-col">
+                <div class="bar-pillar" style="height: 72%;" data-score="72%"></div>
+              </div>
+
+              <!-- Session 3: 78% -->
+              <div class="chart-bar-col">
+                <div class="bar-pillar" style="height: 78%;" data-score="78%"></div>
+              </div>
+
+              <!-- Session 4: 82% -->
+              <div class="chart-bar-col">
+                <div class="bar-pillar" style="height: 82%;" data-score="82%"></div>
+              </div>
+
+              <!-- Session 5: 88% -->
+              <div class="chart-bar-col">
+                <div class="bar-pillar" style="height: 88%;" data-score="88%"></div>
+              </div>
+
+            </div>
+
+            <div class="chart-x-labels">
+              <span class="x-label">Mock 1</span>
+              <span class="x-label">Mock 2</span>
+              <span class="x-label">Mock 3</span>
+              <span class="x-label">Mock 4</span>
+              <span class="x-label">Mock 5</span>
+            </div>
+
+          </div>
+
+          <!-- Chart Footer Note -->
+          <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+            <span>Hover over any pillar to view exact score breakdown</span>
+            <span style="color: var(--primary-blue);">+23% Total Growth</span>
+          </div>
+        </div>
+
+        <!-- Right: Pure CSS Circular Readiness Gauge & Skill Distribution -->
+        <div class="chart-card gauge-card">
+          <h3>Overall Readiness</h3>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">Estimated hireability index</p>
+
+          <!-- Pure CSS Conic Gradient Dial -->
+          <div class="css-circular-gauge">
+            <div class="gauge-inner">
+              <span class="gauge-percent">86%</span>
+              <span class="gauge-caption">High Ready</span>
+            </div>
+          </div>
+
+          <!-- Breakdown Progress Bars -->
+          <div class="skills-breakdown-list" style="width: 100%;">
+            
+            <div class="skill-row">
+              <div class="skill-info">
+                <span class="skill-name">Technical Concepts</span>
+                <span class="skill-score">88%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill fill-blue" style="width: 88%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <span class="skill-name">Communication Clarity</span>
+                <span class="skill-score">82%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill fill-emerald" style="width: 82%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <span class="skill-name">Problem Solving / STAR</span>
+                <span class="skill-score">90%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill fill-violet" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <span class="skill-name">Answer Completeness</span>
+                <span class="skill-score">84%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill fill-amber" style="width: 84%;"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: Recent Interview History Table -->
+      <div class="history-section">
+        <div class="table-card">
+          
+          <div class="table-header-bar">
+            <div>
+              <h3>Recent Interview History</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">View previous session performance and review feedback</p>
+            </div>
+            <a href="setup.html" class="btn btn-sm btn-primary">Take New Mock</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Job Role</th>
+                  <th>Interview Type</th>
+                  <th>Difficulty</th>
+                  <th>Questions</th>
+                  <th>Score</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <!-- Row 1 -->
+                <tr>
+                  <td>
+                    <div class="role-col-title">Frontend Developer</div>
+                    <div class="role-col-sub">React, JS Runtime & CSS Architecture</div>
+                  </td>
+                  <td><span class="badge badge-blue">Technical</span></td>
+                  <td>Intermediate</td>
+                  <td>5 Questions</td>
+                  <td>
+                    <span class="score-badge-table score-high">88 / 100</span>
+                  </td>
+                  <td><span class="badge badge-emerald">Completed</span></td>
+                  <td>
+                    <a href="results.html" class="action-link">View Full Report →</a>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr>
+                  <td>
+                    <div class="role-col-title">Full Stack Developer</div>
+                    <div class="role-col-sub">Node.js, REST APIs & SQL Schema</div>
+                  </td>
+                  <td><span class="badge badge-violet">Mixed</span></td>
+                  <td>Advanced</td>
+                  <td>10 Questions</td>
+                  <td>
+                    <span class="score-badge-table score-high">82 / 100</span>
+                  </td>
+                  <td><span class="badge badge-emerald">Completed</span></td>
+                  <td>
+                    <a href="results.html" class="action-link">View Full Report →</a>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr>
+                  <td>
+                    <div class="role-col-title">Software Developer</div>
+                    <div class="role-col-sub">Conflict Resolution & Leadership</div>
+                  </td>
+                  <td><span class="badge badge-amber">Behavioral</span></td>
+                  <td>Intermediate</td>
+                  <td>5 Questions</td>
+                  <td>
+                    <span class="score-badge-table score-mid">78 / 100</span>
+                  </td>
+                  <td><span class="badge badge-emerald">Completed</span></td>
+                  <td>
+                    <a href="results.html" class="action-link">View Full Report →</a>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr>
+                  <td>
+                    <div class="role-col-title">Java Developer</div>
+                    <div class="role-col-sub">OOP Principles & Concurrency</div>
+                  </td>
+                  <td><span class="badge badge-blue">Technical</span></td>
+                  <td>Beginner</td>
+                  <td>5 Questions</td>
+                  <td>
+                    <span class="score-badge-table score-high">85 / 100</span>
+                  </td>
+                  <td><span class="badge badge-emerald">Completed</span></td>
+                  <td>
+                    <a href="results.html" class="action-link">View Full Report →</a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <a href="index.html" class="brand">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              </svg>
+            </div>
+            <div class="brand-name">INTERVIEW<span>AI</span></div>
+          </a>
+          <p>Practice Smarter. Interview Better. Get Hired.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="setup.html">Interview Setup</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="questions.html">Question Bank</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Live Simulations</h4>
+          <div class="footer-links">
+            <a href="interview.html">Active Interview Room</a>
+            <a href="results.html">Sample Performance Report</a>
+            <a href="setup.html">Custom Role Setup</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <div class="footer-links">
+            <span>HTML5 & CSS3 Only</span>
+            <span>Zero JavaScript</span>
+            <span>Accessible Layouts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 INTERVIEWAI. All rights reserved.</div>
+        <div class="prototype-disclaimer">Static Frontend Prototype • Demonstration Data</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

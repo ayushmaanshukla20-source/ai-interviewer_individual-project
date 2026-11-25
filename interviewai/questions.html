@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="INTERVIEWAI Question Bank - Explore hundreds of categorized Technical, HR, and Behavioral questions with model answers.">
+  <title>Curated Question Bank – INTERVIEWAI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/results.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Question Bank Specific Styles */
+    .filter-pills-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .filter-pill {
+      padding: 0.5rem 1.15rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: var(--primary-blue);
+      color: #fff;
+    }
+
+    .question-category-block {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 5rem;
+    }
+
+    .category-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .category-title-row h2 {
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .q-card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .question-item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: var(--transition-normal);
+    }
+
+    .question-item-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: var(--shadow-md);
+    }
+
+    .q-top-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .q-badges {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .q-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .q-sample-details {
+      margin-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1rem;
+    }
+
+    .q-sample-summary {
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.85rem;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: var(--radius-md);
+      transition: var(--transition-fast);
+    }
+
+    .q-sample-summary:hover {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+    }
+
+    .q-sample-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .q-answer-content {
+      margin-top: 1rem;
+      padding: 1.25rem;
+      background: rgba(10, 15, 26, 0.6);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--accent-violet);
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .q-tips-box {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: rgba(245, 158, 11, 0.08);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent-amber);
+      font-size: 0.85rem;
+      color: #fef08a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= Navigation Bar ================= -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+            <line x1="8" y1="22" x2="16" y2="22"></line>
+          </svg>
+        </div>
+        <div class="brand-name">INTERVIEW<span>AI</span></div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="questions.html" class="nav-link active">Question Bank</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="setup.html" class="btn btn-primary">Start Mock Interview</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Question Bank Header ================= -->
+  <main class="section" style="padding-top: 2.5rem;">
+    <div class="container">
+      
+      <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+        <span class="badge badge-emerald" style="margin-bottom: 0.75rem;">Verified Industry Question Bank</span>
+        <h1>Interview Questions & Model Answers</h1>
+        <p style="margin: 0;">Explore comprehensive questions across Frontend, Backend, Core Computer Science, AI/ML, HR, and Behavioral categories with expandable answers and answering tips.</p>
+      </div>
+
+      <!-- Jump Anchors Bar -->
+      <div class="filter-pills-bar">
+        <a href="#technical-web" class="filter-pill active">🌐 HTML, CSS & JavaScript</a>
+        <a href="#languages" class="filter-pill">☕ Java & Python</a>
+        <a href="#core-cs" class="filter-pill">💾 DSA, DBMS, OS & Networks</a>
+        <a href="#ai-ml" class="filter-pill">🤖 AI & Machine Learning</a>
+        <a href="#hr-questions" class="filter-pill">🤝 HR Rounds</a>
+        <a href="#behavioral" class="filter-pill">🎯 Behavioral & STAR</a>
+      </div>
+
+      <!-- ================= Section 1: HTML, CSS & JavaScript ================= -->
+      <div class="question-category-block" id="technical-web">
+        
+        <div class="category-title-row">
+          <h2>
+            <span>🌐</span> HTML, CSS & Modern JavaScript
+          </h2>
+          <span class="badge badge-blue">Frontend Track</span>
+        </div>
+
+        <div class="q-card-grid">
+          
+          <!-- Q1 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-blue">JavaScript Runtime</span>
+                <span class="badge badge-violet">Intermediate</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Topic: Asynchronous Programming</span>
+            </div>
+            
+            <h3 class="q-title">
+              Explain the JavaScript Event Loop and differentiate between the Microtask queue and Macrotask queue.
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer:</strong></p>
+                <p>JavaScript is a single-threaded runtime with a synchronous Call Stack. Long-running or async tasks are delegated to browser/Node APIs. When async tasks complete, their callbacks are placed in queues:</p>
+                <ul>
+                  <li><strong>Microtask Queue:</strong> Holds callbacks from <code>Promises</code>, <code>queueMicrotask()</code>, and <code>MutationObserver</code>. Microtasks execute immediately after the current stack frame empties.</li>
+                  <li><strong>Macrotask Queue (Task Queue):</strong> Holds callbacks from <code>setTimeout</code>, <code>setInterval</code>, and I/O events.</li>
+                  <li><strong>The Event Loop Rule:</strong> The event loop drains the entire microtask queue before picking the next single macrotask from the task queue.</li>
+                </ul>
+              </div>
+              <div class="q-tips-box">
+                💡 <strong>Answering Tip:</strong> Mention that an infinite microtask loop (e.g. recursive Promise chaining) will starve macrotasks and freeze UI rendering.
+              </div>
+            </details>
+          </div>
+
+          <!-- Q2 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-cyan">CSS Layout</span>
+                <span class="badge badge-emerald">Beginner</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Topic: Responsive Design</span>
+            </div>
+            
+            <h3 class="q-title">
+              When should you choose CSS Grid over Flexbox, and how do their dimension models differ?
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer:</strong></p>
+                <p><strong>Flexbox</strong> is a one-dimensional layout system designed for distributing space along either a row or a column (content-first). It excels at navigation bars, button groups, and vertical centering.</p>
+                <p><strong>CSS Grid</strong> is a two-dimensional layout system designed for strict row and column alignment simultaneously (layout-first). It excels at page templates, dashboards, photo galleries, and complex multi-column responsive systems.</p>
+              </div>
+              <div class="q-tips-box">
+                💡 <strong>Answering Tip:</strong> State clearly: "Flexbox is 1D (row OR column), while Grid is 2D (rows AND columns simultaneously)."
+              </div>
+            </details>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= Section 2: Java & Python ================= -->
+      <div class="question-category-block" id="languages">
+        
+        <div class="category-title-row">
+          <h2>
+            <span>☕</span> Java & Python Core Concepts
+          </h2>
+          <span class="badge badge-violet">Backend Track</span>
+        </div>
+
+        <div class="q-card-grid">
+          
+          <!-- Q3 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-amber">Java JVM</span>
+                <span class="badge badge-violet">Intermediate</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Topic: Memory & Garbage Collection</span>
+            </div>
+            
+            <h3 class="q-title">
+              How does Garbage Collection operate in the Java Virtual Machine (JVM), and what are Generational Heaps?
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer:</strong></p>
+                <p>The JVM manages memory automatically by reclaiming objects that are no longer reachable from GC Roots (threads, static variables, local stack variables). The JVM heap is partitioned into generations based on the weak generational hypothesis (most objects die young):</p>
+                <ul>
+                  <li><strong>Young Generation:</strong> Divided into Eden and Survivor spaces (S0, S1). Fast Minor GC cleans short-lived objects.</li>
+                  <li><strong>Old (Tenured) Generation:</strong> Holds surviving objects promoted after threshold cycles. Collected via Major/Full GC (e.g., G1, ZGC).</li>
+                </ul>
+              </div>
+              <div class="q-tips-box">
+                💡 <strong>Answering Tip:</strong> Mention modern GC algorithms like G1GC or ZGC which focus on ultra-low stop-the-world pause times.
+              </div>
+            </details>
+          </div>
+
+          <!-- Q4 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-blue">Python Internals</span>
+                <span class="badge badge-violet">Intermediate</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Topic: Concurrency & GIL</span>
+            </div>
+            
+            <h3 class="q-title">
+              What is Python's Global Interpreter Lock (GIL), and how do you achieve true parallel execution?
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer:</strong></p>
+                <p>The Global Interpreter Lock (GIL) is a mutex in CPython that prevents multiple native threads from executing Python bytecodes simultaneously, safeguarding CPython's reference-counting memory management.</p>
+                <p>To overcome this: for <strong>I/O-bound tasks</strong>, threading or <code>asyncio</code> provides high concurrency because the GIL is released during I/O. For <strong>CPU-bound tasks</strong>, developers use <code>multiprocessing</code>, which spawns independent OS processes each with their own memory and GIL.</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= Section 3: Core CS (DSA, DBMS, OS, Networks) ================= -->
+      <div class="question-category-block" id="core-cs">
+        
+        <div class="category-title-row">
+          <h2>
+            <span>💾</span> Data Structures, DBMS, OS & Networks
+          </h2>
+          <span class="badge badge-emerald">Fundamental CS</span>
+        </div>
+
+        <div class="q-card-grid">
+          
+          <!-- Q5 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-rose">Database Systems</span>
+                <span class="badge badge-violet">Intermediate</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Topic: Indexing & Storage Engine</span>
+            </div>
+            
+            <h3 class="q-title">
+              Why are B+ Trees predominantly used for relational database indexes instead of Hash Tables or Binary Search Trees?
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer:</strong></p>
+                <p>B+ Trees provide significant advantages for persistent disk-based storage engines:</p>
+                <ul>
+                  <li><strong>Range Queries:</strong> Leaf nodes in a B+ Tree are linked in a sequential doubly-linked list, allowing O(log N) point lookup followed by fast O(K) linear range scanning (unlike Hash Tables which only do O(1) equality).</li>
+                  <li><strong>High Fan-Out & Low Height:</strong> B+ Tree nodes fit into standard OS disk pages (e.g. 4KB/16KB), drastically reducing disk I/O seeks compared to deep Binary Search Trees.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <!-- Q6 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-blue">Operating Systems</span>
+                <span class="badge badge-emerald">Beginner</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Topic: Process Management</span>
+            </div>
+            
+            <h3 class="q-title">
+              Explain the difference between a Process and a Thread, and what resources are shared.
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer:</strong></p>
+                <p>A <strong>Process</strong> is an executing instance of a program with its own isolated address space (text, data, heap, file descriptors). Context switching between processes is relatively expensive.</p>
+                <p>A <strong>Thread</strong> is the smallest schedulable unit of execution within a process. Threads within the same process share the heap, global variables, and open files, but maintain their own program counter (PC), registers, and stack frame.</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= Section 4: AI & Machine Learning ================= -->
+      <div class="question-category-block" id="ai-ml">
+        
+        <div class="category-title-row">
+          <h2>
+            <span>🤖</span> Artificial Intelligence & Machine Learning
+          </h2>
+          <span class="badge badge-cyan">AI Engineer Track</span>
+        </div>
+
+        <div class="q-card-grid">
+          
+          <!-- Q7 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-violet">Transformers & NLP</span>
+                <span class="badge badge-violet">Advanced</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Topic: Attention Mechanism</span>
+            </div>
+            
+            <h3 class="q-title">
+              How does the Multi-Head Self-Attention mechanism in the Transformer architecture work mathematically?
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer:</strong></p>
+                <p>Self-attention maps input representations into Query (Q), Key (K), and Value (V) matrices via learned linear projections. The attention weights are calculated via Scaled Dot-Product Attention: <code>Attention(Q, K, V) = softmax(Q * K^T / sqrt(d_k)) * V</code>.</p>
+                <p>Multi-Head Attention projects Q, K, and V into <em>h</em> distinct lower-dimensional subspaces, computes attention in parallel for each head, and concatenates the results before a final linear projection, enabling the model to attend to information from different representation subspaces at different positions.</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= Section 5: HR Questions ================= -->
+      <div class="question-category-block" id="hr-questions">
+        
+        <div class="category-title-row">
+          <h2>
+            <span>🤝</span> Human Resources (HR) Questions
+          </h2>
+          <span class="badge badge-amber">Recruiter & Culture Fit</span>
+        </div>
+
+        <div class="q-card-grid">
+          
+          <!-- Q8 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-amber">Self Presentation</span>
+                <span class="badge badge-emerald">Universal</span>
+              </div>
+            </div>
+            
+            <h3 class="q-title">
+              "Tell me about yourself and walk me through your technical journey."
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Recommended 3-Part Structure (Present, Past, Future):</strong></p>
+                <p>1. <strong>Present:</strong> "Currently, I specialize in full-stack web development with a focus on React, Node.js, and high-performance frontend architectures."</p>
+                <p>2. <strong>Past:</strong> "Over the past 2 years, I built and deployed production applications, including a real-time analytics dashboard that improved customer onboarding latency by 35%."</p>
+                <p>3. <strong>Future:</strong> "I am excited about this role because your team tackles distributed scale, where I can contribute my frontend engineering rigor and deep interest in API design."</p>
+              </div>
+              <div class="q-tips-box">
+                💡 <strong>Answering Tip:</strong> Keep this answer under 90 seconds. Focus on achievements and impact, not your childhood or resume regurgitation.
+              </div>
+            </details>
+          </div>
+
+          <!-- Q9 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-amber">Motivation</span>
+                <span class="badge badge-emerald">Universal</span>
+              </div>
+            </div>
+            
+            <h3 class="q-title">
+              "Why should we hire you over other qualified candidates?"
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Model Answer Strategy:</strong></p>
+                <p>Tie your unique combination of technical depth, speed of execution, and collaborative ownership to their specific business challenges. Emphasize that you don't just write code to specifications, but understand product metrics and maintain high documentation standards.</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= Section 6: Behavioral (STAR) ================= -->
+      <div class="question-category-block" id="behavioral">
+        
+        <div class="category-title-row">
+          <h2>
+            <span>🎯</span> Behavioral Questions (STAR Method)
+          </h2>
+          <span class="badge badge-rose">Leadership & Teamwork</span>
+        </div>
+
+        <div class="q-card-grid">
+          
+          <!-- Q10 -->
+          <div class="question-item-card">
+            <div class="q-top-meta">
+              <div class="q-badges">
+                <span class="badge badge-rose">Conflict Resolution</span>
+                <span class="badge badge-violet">Intermediate</span>
+              </div>
+            </div>
+            
+            <h3 class="q-title">
+              "Describe a situation where you had a strong disagreement with a teammate or lead regarding a technical decision. How did you resolve it?"
+            </h3>
+
+            <details class="q-sample-details">
+              <summary class="q-sample-summary">
+                🔍 Reveal Model Answer & Strategy
+              </summary>
+              <div class="q-answer-content">
+                <p><strong>Structured STAR Response:</strong></p>
+                <p><strong>Situation:</strong> While building our capstone project, my team lead wanted to use a NoSQL document database, whereas I advocated for PostgreSQL due to strong relational transactions in our billing module.</p>
+                <p><strong>Task:</strong> We needed to decide before our sprint deadline without causing friction or architectural paralysis.</p>
+                <p><strong>Action:</strong> Rather than arguing opinions, I created a quick benchmark prototype of our 3 most critical query patterns and presented an objective matrix comparing schema migration overhead and query speeds.</p>
+                <p><strong>Result:</strong> We agreed to use PostgreSQL for transactions and Redis for session caching, which helped us ship on time with zero schema inconsistencies.</p>
+              </div>
+              <div class="q-tips-box">
+                💡 <strong>Answering Tip:</strong> Always highlight data-driven resolution and psychological safety over "winning the argument".
+              </div>
+            </details>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom CTA Banner -->
+      <div class="cta-banner" style="margin-top: 3rem;">
+        <h2>Ready to Test These Questions Live?</h2>
+        <p>Launch an interactive mock interview room and practice answering under realistic time pressure.</p>
+        <a href="setup.html" class="btn btn-primary btn-lg">Start Mock Interview Now</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding-top: 0;">
+        <div>© 2026 INTERVIEWAI. All rights reserved.</div>
+        <div class="prototype-disclaimer">Static Frontend Prototype • Demonstration Question Bank</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
